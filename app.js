@@ -1,9 +1,11 @@
+const fs = require('fs');
+
 var CloudmersiveConvertApiClient = require('cloudmersive-convert-api-client');
 var defaultClient = CloudmersiveConvertApiClient.ApiClient.instance;
 
 // Configure API key authorization: Apikey
 var Apikey = defaultClient.authentications['Apikey'];
-Apikey.apiKey = 'YOUR API KEY';
+Apikey.apiKey = '402380c4-b4f1-47bc-b5aa-cb76c73c1ed8';
 
 
 
@@ -17,7 +19,6 @@ var callback = function(error, data, response) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
-    console.log('Result bytes:')
   }
 };
 apiInstance.convertDocumentPptxToPdf(inputFile, callback);
