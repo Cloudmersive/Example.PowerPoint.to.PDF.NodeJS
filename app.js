@@ -5,7 +5,7 @@ var defaultClient = CloudmersiveConvertApiClient.ApiClient.instance;
 
 // Configure API key authorization: Apikey
 var Apikey = defaultClient.authentications['Apikey'];
-Apikey.apiKey = '402380c4-b4f1-47bc-b5aa-cb76c73c1ed8';
+Apikey.apiKey = 'YOUR-API-KEY-HERE';
 
 
 
