@@ -18,7 +18,16 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+
+    fs.writeFile("C:\\temp\\output.pdf", data,  "binary",function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("The file was saved!");
+        }
+    });
+
+    console.log('Successful - done.');
   }
 };
 apiInstance.convertDocumentPptxToPdf(inputFile, callback);
