@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Cloudmersive/Example.PowerPoint.to.PDF.NodeJS#readme",
   "dependencies": {
-    "cloudmersive-convert-api-client": "^2.0.5"
+    "cloudmersive-convert-api-client": "^2.1.7"
   }
 }
