@@ -24,6 +24,31 @@ var callback = function(error, data, response) {
             console.log(err);
         } else {
             console.log("The file was saved!");
+
+            // Optionally, we can rasterize the PDF
+
+            apiInstance = new CloudmersiveConvertApiClient.EditPdfApi();
+
+            inputFile2 = Buffer.from(fs.readFileSync("C:\\temp\\output.pdf").buffer);
+
+            var callback2 = function(error, data, response) {
+              if (error) {
+                console.error(error);
+              } else {
+
+                fs.writeFile("C:\\temp\\output2.pdf", data,  "binary",function(err) {
+                    if(err) {
+                        console.log(err);
+                    } else {
+                        console.log("The second file was saved!");
+                    }
+                });
+
+                console.log('Successful - done.');
+              }
+            };
+
+            apiInstance.editPdfRasterize(inputFile2, callback2);
         }
     });
 
@@ -32,27 +57,3 @@ var callback = function(error, data, response) {
 };
 apiInstance.convertDocumentPptxToPdf(inputFile, callback);
 
-// Optionally, we can rasterize the PDF
-
-apiInstance = new CloudmersiveConvertApiClient.EditPdfApi();
-
-inputFile = Buffer.from(fs.readFileSync("C:\\temp\\output.pdf").buffer);
-
-var callback2 = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-
-    fs.writeFile("C:\\temp\\output2.pdf", data,  "binary",function(err) {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log("The file was saved!");
-        }
-    });
-
-    console.log('Successful - done.');
-  }
-};
-
-apiInstance.editPdfRasterize(inputFile, callback2);
